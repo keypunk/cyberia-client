@@ -10,4 +10,6 @@ module com.cyberiashop.cyberiaclient {
 
     opens com.cyberiashop.cyberiaclient to javafx.fxml;
     exports com.cyberiashop.cyberiaclient;
+    exports com.cyberiashop.cyberiaclient.controllers;
+    opens com.cyberiashop.cyberiaclient.controllers to javafx.fxml;
 }

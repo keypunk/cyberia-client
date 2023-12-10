@@ -1,0 +1,9 @@
+BorderPane #left-side  {
+    -fx-background-color: #5cb8ff;
+}
+
+.text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: lightblue;
+    -fx-border-width: 0px 0px 2px 0px;
+}
