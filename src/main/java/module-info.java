@@ -8,8 +8,8 @@ module com.cyberiashop.cyberiaclient {
     requires org.kordamp.ikonli.javafx;
     requires eu.hansolo.tilesfx;
 
-    opens com.cyberiashop.cyberiaclient to javafx.fxml;
-    exports com.cyberiashop.cyberiaclient;
     exports com.cyberiashop.cyberiaclient.controllers;
     opens com.cyberiashop.cyberiaclient.controllers to javafx.fxml;
+    exports com.cyberiashop.cyberiaclient.views;
+    opens com.cyberiashop.cyberiaclient.views to javafx.fxml;
 }

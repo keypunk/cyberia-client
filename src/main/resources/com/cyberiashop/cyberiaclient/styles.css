@@ -7,3 +7,28 @@ BorderPane #left-side  {
     -fx-border-color: lightblue;
     -fx-border-width: 0px 0px 2px 0px;
 }
+
+.button {
+    -fx-text-fill: #5cb8ff;
+    -fx-font-weight: bold;
+    -fx-background-color: transparent;
+    -fx-background-radius: 10px;
+    -fx-border-width: 2px;
+    -fx-border-color: lightblue;
+    -fx-border-radius: 10px;
+}
+
+.button:hover {
+    -fx-background-color: lightgray;
+}
+
+.button:pressed {
+    -fx-background-color: transparent;
+}
+
+.combo-box {
+    -fx-background-color: transparent;
+    -fx-border-width: 0px 0px 3px 0px;
+    -fx-border-color: lightblue;
+    -fx-font-weight: bold;
+}
