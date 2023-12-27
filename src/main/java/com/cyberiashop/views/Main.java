@@ -1,4 +1,4 @@
-package com.cyberiashop.cyberiaclient.views;
+package com.cyberiashop.views;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,11 +12,11 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main
                 .class
-                .getResource("/com/cyberiashop/cyberiaclient/login-view.fxml"));
+                .getResource("/com/cyberiashop/login-view.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load(), 700, 480);
         scene.getStylesheets().add(getClass()
-                .getResource("/com/cyberiashop/cyberiaclient/styles.css")
+                .getResource("/com/cyberiashop/styles.css")
                 .toExternalForm());
 
         stage.setTitle("Cyberia");
