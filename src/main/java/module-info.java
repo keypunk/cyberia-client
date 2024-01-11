@@ -8,9 +8,14 @@ module com.cyberiashop {
     requires org.kordamp.ikonli.javafx;
     requires eu.hansolo.tilesfx;
     requires java.rmi;
+    requires java.desktop;
 
     exports com.cyberiashop.controllers;
     opens com.cyberiashop.controllers to javafx.fxml;
-    exports com.cyberiashop.views;
-    opens com.cyberiashop.views to javafx.fxml;
+    opens com.cyberiashop to javafx.fxml;
+    exports com.cyberiashop.views.utils;
+    opens com.cyberiashop.views.utils to javafx.fxml;
+    exports com.cyberiashop;
+    exports com.cyberiashop.views.scene_manager;
+    opens com.cyberiashop.views.scene_manager to javafx.fxml;
 }

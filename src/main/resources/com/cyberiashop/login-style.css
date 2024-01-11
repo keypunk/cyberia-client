@@ -1,11 +1,7 @@
+@import url("main.css")
+
 BorderPane #left-side  {
     -fx-background-color: #5cb8ff;
-}
-
-.text-field {
-    -fx-background-color: transparent;
-    -fx-border-color: lightblue;
-    -fx-border-width: 0px 0px 2px 0px;
 }
 
 .button {
@@ -18,8 +14,8 @@ BorderPane #left-side  {
     -fx-border-radius: 10px;
 }
 
-.button:hover {
-    -fx-background-color: lightgray;
+.button:focused {
+    -fx-border-color: #0077c0;
 }
 
 .button:pressed {
@@ -31,4 +27,9 @@ BorderPane #left-side  {
     -fx-border-width: 0px 0px 3px 0px;
     -fx-border-color: lightblue;
     -fx-font-weight: bold;
+}
+
+.combo-box:hover {
+    -fx-cursor: hand;
+    -fx-border-color: #0077c0;
 }

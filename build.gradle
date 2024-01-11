@@ -26,7 +26,7 @@ tasks.withType(JavaCompile) {
 
 application {
   mainModule = 'com.cyberiashop'
-  mainClass = 'com.cyberiashop.views.Main'
+  mainClass = 'com.cyberiashop.Main'
 }
 
 javafx {
@@ -45,6 +45,7 @@ dependencies {
   }
 
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+  testImplementation ("org.mockito:mockito-core:3.+")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
 

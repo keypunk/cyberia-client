@@ -1,0 +1,14 @@
+.text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: lightblue;
+    -fx-border-width: 0px 0px 2px 0px;
+}
+
+.text-field:focused {
+    -fx-border-color: #0077c0;
+}
+
+.button:hover {
+    -fx-background-color: lightgray;
+    -fx-cursor: hand;
+}
