@@ -3,6 +3,7 @@ package com.cyberiashop.controllers;
 import com.cyberiashop.models.utils.EmptyInputValidator;
 import com.cyberiashop.models.business_logic.Authentication;
 import com.cyberiashop.models.business_logic.EmployeeAuthenticationFactory;
+import com.cyberiashop.models.utils.LoginAlerts;
 import com.cyberiashop.views.utils.CyberiaAlert;
 import com.cyberiashop.views.scene_manager.SceneFactory;
 import javafx.application.Platform;
@@ -31,7 +32,6 @@ public class LoginFormController implements Initializable {
     private final String[] USER_ROLES = { EMPLOYEE_ROLE, CUSTOMER_ROLE };
     private Authentication authentication;
     private SceneFactory sceneFactory;
-    private EmptyInputValidator validator;
     @Override
     public void initialize(URL url, ResourceBundle bundle) {
         cbUserroles.getItems().addAll(USER_ROLES);
@@ -43,32 +43,18 @@ public class LoginFormController implements Initializable {
     void handleLoginAction(ActionEvent event) throws RemoteException {
         String username = tfUsername.getText();
         String password = pfPassword.getText();
-        validator = new EmptyInputValidator();
-        boolean emptyInputFields = validator.isEmpty(username, password);
+        boolean emptyInputFields = EmptyInputValidator.isEmpty(username, password);
 
         if (emptyInputFields) {
-            showInvalidLoginInputAlert();
+            LoginAlerts.showInvalidLoginInputAlert();
         } else if (cbUserroles.getSelectionModel().getSelectedItem().contains(EMPLOYEE_ROLE)) {
             authentication = new EmployeeAuthenticationFactory().createAuthentication();
             if (authentication.authenticate(username, password)) {
                 Platform.exit();
+            } else {
+                LoginAlerts.showFailedLoginAlert();
             }
         } else if (cbUserroles.getSelectionModel().getSelectedItem().contains(CUSTOMER_ROLE)) {
         }
-    }
-
-    void showInvalidLoginInputAlert() {
-        Alert alert = new CyberiaAlert(Alert.AlertType.WARNING);
-        alert.setTitle("Empty Fields");
-        alert.setHeaderText("Please fill in all the fields");
-        alert.setContentText("Both username and password fields are required");
-        alert.showAndWait();
-    }
-
-    void showFailedLoginAlert() {
-        Alert alert = new CyberiaAlert(Alert.AlertType.ERROR);
-        alert.setTitle("Authentication failed");
-        alert.setHeaderText("Account not found");
-        alert.showAndWait();
     }
 }

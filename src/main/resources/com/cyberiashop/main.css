@@ -7,8 +7,3 @@
 .text-field:focused {
     -fx-border-color: #0077c0;
 }
-
-.button:hover {
-    -fx-background-color: lightgray;
-    -fx-cursor: hand;
-}

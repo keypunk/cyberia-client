@@ -4,6 +4,8 @@ BorderPane #left-side  {
     -fx-background-color: #5cb8ff;
 }
 
+/* === css rule sets for login button === */
+
 .button {
     -fx-text-fill: #5cb8ff;
     -fx-font-weight: bold;
@@ -14,13 +16,20 @@ BorderPane #left-side  {
     -fx-border-radius: 10px;
 }
 
+.button:pressed {
+    -fx-background-color: transparent;
+}
+
+.button:hover {
+    -fx-background-color: lightgray;
+    -fx-cursor: hand;
+}
+
 .button:focused {
     -fx-border-color: #0077c0;
 }
 
-.button:pressed {
-    -fx-background-color: transparent;
-}
+/* === css rule sets for combo-box === */
 
 .combo-box {
     -fx-background-color: transparent;
