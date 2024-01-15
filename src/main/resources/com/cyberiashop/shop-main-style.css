@@ -17,3 +17,13 @@
 .shadow {
     -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.1), 10.0, 0.0, 0.0, 10.0);
 }
+
+.chosen-product-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 30;
+}
+
+.add-to-card-button {
+    -fx-background-color: #5cb8ff;
+    -fx-background-radius: 30;
+}

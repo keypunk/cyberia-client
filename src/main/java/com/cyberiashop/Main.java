@@ -2,6 +2,7 @@ package com.cyberiashop;
 
 import com.cyberiashop.views.scene_manager.LoginSceneFactory;
 import com.cyberiashop.views.scene_manager.SceneFactory;
+import com.cyberiashop.views.scene_manager.ShopSceneFactory;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

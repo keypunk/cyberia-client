@@ -19,7 +19,7 @@
          <children>
             <ImageView fitHeight="206.0" fitWidth="213.0" layoutX="72.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@cyberia_logo.jpg" />
+                  <Image url="@cyberia_images/cyberia_logo.jpg" />
                </image>
             </ImageView>
          </children>
