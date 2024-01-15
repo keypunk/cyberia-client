@@ -18,7 +18,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
 
-        SceneFactory sceneFactory = new LoginSceneFactory();
+        SceneFactory sceneFactory = new ShopSceneFactory();
         sceneFactory.renderScene();
     }
 

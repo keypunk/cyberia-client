@@ -52,6 +52,8 @@ public class LoginFormController implements Initializable {
             if (authentication.authenticate(username, password)) {
                 Platform.exit();
             } else {
+                tfUsername.setText("");
+                pfPassword.setText("");
                 LoginAlerts.showFailedLoginAlert();
             }
         } else if (cbUserroles.getSelectionModel().getSelectedItem().contains(CUSTOMER_ROLE)) {
