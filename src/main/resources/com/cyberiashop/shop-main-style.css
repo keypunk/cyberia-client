@@ -4,14 +4,29 @@
     -fx-background-color: #5cb8ff;
 }
 
+.transparent {
+    -fx-background-color: rgba(0, 0, 0, 0);
+}
+
 .search-box {
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 100;
 }
 
-.search-button {
+.shop-button {
     -fx-background-color: #5cb8ff;
     -fx-background-radius: 30;
+}
+
+.shop-button:hover {
+    -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.1), 10.0, 0.0, 0.0, 10.0);
+    -fx-cursor: hand;
+}
+
+.shop-button:pressed {
+    -fx-translate-x: 1.5;
+    -fx-translate-y: 1.5;
+    -fx-translate-z: 1.5;
 }
 
 .shadow {
@@ -23,7 +38,23 @@
     -fx-background-radius: 30;
 }
 
-.add-to-card-button {
-    -fx-background-color: #5cb8ff;
+.fruit-item {
+    -fx-background-color: #FFFFFF;
     -fx-background-radius: 30;
+}
+
+.top-right-button {
+    -fx-background-color: #5cb8ff;
+    -fx-background-radius: 10;
+}
+
+.top-right-button:hover {
+    -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.1), 5.0, 0.0, 0.0, 5.0);
+    -fx-cursor: hand;
+}
+
+.top-right-button:pressed {
+     -fx-translate-x: 1.5;
+     -fx-translate-y: 1.5;
+     -fx-translate-z: 1.5;
 }

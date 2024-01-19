@@ -1,4 +1,4 @@
-package com.cyberiashop.models.business_logic;
+package com.cyberiashop.models.business_logic.authentication;
 
 import com.cyberiashop.models.exceptions.AuthenticationException;
 
