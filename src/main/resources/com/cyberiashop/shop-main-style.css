@@ -38,11 +38,6 @@
     -fx-background-radius: 30;
 }
 
-.fruit-item {
-    -fx-background-color: #FFFFFF;
-    -fx-background-radius: 30;
-}
-
 .top-right-button {
     -fx-background-color: #5cb8ff;
     -fx-background-radius: 10;

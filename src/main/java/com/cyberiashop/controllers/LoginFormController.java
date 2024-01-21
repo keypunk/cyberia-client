@@ -3,7 +3,7 @@ package com.cyberiashop.controllers;
 import com.cyberiashop.models.utils.EmptyInputValidator;
 import com.cyberiashop.models.business_logic.authentication.Authentication;
 import com.cyberiashop.models.business_logic.authentication.EmployeeAuthenticationFactory;
-import com.cyberiashop.models.utils.LoginAlerts;
+import com.cyberiashop.views.utils.LoginAlerts;
 import com.cyberiashop.views.scene_manager.ShopSceneFactory;
 import com.cyberiashop.views.scene_manager.SceneFactory;
 import javafx.application.Platform;
@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 
 public class LoginFormController implements Initializable {
 
-    // view elements on the login form that are modifiable for update purposes
+    // 'view elements' on the login form that are modifiable for update purposes
     @FXML
     private PasswordField pfPassword;
     @FXML
@@ -38,6 +38,7 @@ public class LoginFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle bundle) {
+        // add user roles to the comboBox
         cbUserroles.getItems().addAll(USER_ROLES);
         // select first option in combobox as default otherwise the combobox would select an "empty" string
         cbUserroles.getSelectionModel().select(0);
@@ -47,11 +48,12 @@ public class LoginFormController implements Initializable {
     void handleLoginAction(ActionEvent event) throws Exception {
         String username = tfUsername.getText();
         String password = pfPassword.getText();
+        String selectedUserRole = cbUserroles.getSelectionModel().getSelectedItem();
         boolean emptyInputFields = EmptyInputValidator.isEmpty(username, password);
 
         if (emptyInputFields) {
             LoginAlerts.showInvalidLoginInputAlert();
-        } else if (cbUserroles.getSelectionModel().getSelectedItem().contains(EMPLOYEE_ROLE)) {
+        } else if (selectedUserRole.contains(EMPLOYEE_ROLE)) {
             authentication = new EmployeeAuthenticationFactory().createAuthentication();
             if (authentication.authenticate(username, password)) {
                 Platform.exit();
@@ -60,9 +62,15 @@ public class LoginFormController implements Initializable {
                 pfPassword.setText("");
                 LoginAlerts.showFailedLoginAlert();
             }
-        } else if (cbUserroles.getSelectionModel().getSelectedItem().contains(CUSTOMER_ROLE)) {
+        } else if (selectedUserRole.contains(CUSTOMER_ROLE)) {
             sceneFactory = new ShopSceneFactory();
             sceneFactory.renderScene();
         }
+    }
+
+    void handleCustomerLoginAction(String username, String password) {
+    }
+
+    void handleEmployeeLoginAction(String username, String password) {
     }
 }

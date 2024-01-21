@@ -1,4 +1,4 @@
-package com.cyberiashop.models.utils;
+package com.cyberiashop.views.utils;
 
 import com.cyberiashop.views.utils.CyberiaAlert;
 import javafx.scene.control.Alert;

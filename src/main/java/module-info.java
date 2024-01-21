@@ -9,6 +9,7 @@ module com.cyberiashop {
     requires eu.hansolo.tilesfx;
     requires java.rmi;
     requires java.desktop;
+    requires jakarta.persistence;
 
     exports com.cyberiashop.controllers;
     opens com.cyberiashop.controllers to javafx.fxml;
@@ -18,4 +19,5 @@ module com.cyberiashop {
     exports com.cyberiashop;
     exports com.cyberiashop.views.scene_manager;
     opens com.cyberiashop.views.scene_manager to javafx.fxml;
+    exports com.cyberiashop.models.data_models;
 }
