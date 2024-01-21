@@ -2,10 +2,17 @@
 
 .item-card {
     -fx-background-color: #FFFFFF;
+    -fx-background-radius: 30;
 }
 
 .item-card:hover {
     -fx-cursor: hand;
+}
+
+.item-card:pressed {
+    -fx-translate-x: 1.5;
+    -fx-translate-y: 1.5;
+    -fx-translate-z: 1.5;
 }
 
 .shadow {

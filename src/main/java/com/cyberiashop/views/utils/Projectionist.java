@@ -1,6 +1,6 @@
 package com.cyberiashop.views.utils;
 
-import com.cyberiashop.Main;
+import com.cyberiashop.Client;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -11,7 +11,7 @@ public class Projectionist {
     private Stage primaryStage;
 
     private Projectionist() {
-        primaryStage = Main.getStage();
+        primaryStage = Client.getStage();
         primaryStage.setTitle(TITLE);
         primaryStage.setResizable(NOT_RESIZABLE);
 

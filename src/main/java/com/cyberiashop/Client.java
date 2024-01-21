@@ -2,12 +2,11 @@ package com.cyberiashop;
 
 import com.cyberiashop.views.scene_manager.LoginSceneFactory;
 import com.cyberiashop.views.scene_manager.SceneFactory;
-import com.cyberiashop.views.scene_manager.ShopSceneFactory;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
 
-public class Main extends Application {
+public class Client extends Application {
     private static Stage primaryStage;
 
     public static void main(String[] args) {
@@ -18,7 +17,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
 
-        SceneFactory sceneFactory = new ShopSceneFactory();
+        SceneFactory sceneFactory = new LoginSceneFactory();
         sceneFactory.renderScene();
     }
 
