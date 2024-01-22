@@ -113,7 +113,7 @@
                                     <Font size="28.0" />
                                  </font>
                               </Label>
-                              <Spinner prefHeight="45.0" prefWidth="130.0" />
+                              <Spinner fx:id="itemQuantitySpinner" prefHeight="45.0" prefWidth="130.0" />
                            </children>
                         </HBox>
                         <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" styleClass="shop-button" stylesheets="@shop-main-style.css" text="ADD TO CART" textFill="WHITE">

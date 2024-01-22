@@ -53,3 +53,7 @@
      -fx-translate-y: 1.5;
      -fx-translate-z: 1.5;
 }
+
+.spinner {
+  -fx-font-size: 24px;
+}

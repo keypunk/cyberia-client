@@ -2,7 +2,6 @@ package com.cyberiashop.controllers;
 
 import com.cyberiashop.models.business_logic.shop_logic.ElectronicProductSearchFactory;
 import com.cyberiashop.models.business_logic.shop_logic.ProductSearch;
-import com.cyberiashop.models.data_models.Category;
 import com.cyberiashop.models.data_models.Product;
 import com.cyberiashop.models.exceptions.ProductSearchException;
 import com.cyberiashop.views.scene_manager.LoginSceneFactory;
@@ -15,10 +14,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Label;
 
@@ -42,11 +43,14 @@ public class ShopController implements Initializable {
     @FXML
     private ScrollPane scroll;
     @FXML
+    private Spinner<Integer> itemQuantitySpinner;
+    @FXML
     private GridPane grid;
 
     private ShopDimensions shopDimensions;
 
     private List<Product> products = new ArrayList<>();
+    private Image image;
     private ProductSearch productSearch;
 
     private SceneFactory sceneFactory;
@@ -79,9 +83,26 @@ public class ShopController implements Initializable {
         }
     }
 
+    private void setChosenItemCard(Product product) {
+        itemNameLabel.setText(product.getName());
+        itemPriceLabel.setText(product.getPrice() + new EuroCurrency().getCurrency());
+        image = new Image(getClass().getResourceAsStream(product.getImgSrc()));
+
+        if (product.getQuantity() > 0) {
+            SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory
+                    .IntegerSpinnerValueFactory(1, product.getQuantity());
+
+            itemQuantitySpinner.setValueFactory(valueFactory);
+        }
+    }
+
     public void addProductsToGridPane(List<Product> products) throws IOException {
         int column = 0;
         int row = 1;
+
+        if (products.size() > 0) {
+            setChosenItemCard(products.get(0));
+        }
 
         for (int i = 0; i < products.size(); i++) {
             FXMLLoader fxmlLoader = new FXMLLoader();
