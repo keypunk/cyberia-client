@@ -1,4 +1,4 @@
-![Cyberia](src/main/resources/com/cyberiashop/cyberia_images/cyberia_logo.jpg)
+![Cyberia](src/main/resources/com/cyberiashop/cyberia_images/cyberia_logo.jpg | width=100)
 
 # Cyberia-Shop (Client)
 Cyberia-Shop is an E-Commerce platform to buy and manage electronic products
