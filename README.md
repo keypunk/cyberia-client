@@ -11,6 +11,10 @@ Cyberia-Shop is an E-Commerce platform to buy and manage electronic products
 ## Features still missing
 - Order table and order logic still missing
 
+# Client information
+There is only one employee account (username: "admin", password: "1234"), since registration for employees over a customer client should not be possible, logically.  
+Registration is only possible for customers.
+
 ## System prerequisites
 - System with at least 4GB RAM (for modern operation system requirements)
 
@@ -29,7 +33,3 @@ git clone git@github.com:keypunk/cyberia-client.git
 ```
 Let the Gradle build system download all the necessary libraries  
 Once the building and indexing is complete, you can run the client.
-
-### Client information
-There is only one employee account (username: "admin", password: "1234"), since registration for employees over a customer client should not be possible, logically.  
-Registration is only possible for customers.
