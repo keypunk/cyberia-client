@@ -5,6 +5,7 @@ import com.cyberiashop.models.business_logic.authentication.UserSession;
 import com.cyberiashop.models.utils.EmptyInputValidator;
 import com.cyberiashop.models.business_logic.authentication.Authentication;
 import com.cyberiashop.models.business_logic.authentication.EmployeeAuthenticationFactory;
+import com.cyberiashop.views.scene_manager.ProductManagementSceneFactory;
 import com.cyberiashop.views.scene_manager.RegisterSceneFactory;
 import com.cyberiashop.views.utils.LoginAlerts;
 import com.cyberiashop.views.scene_manager.ShopSceneFactory;
@@ -89,8 +90,8 @@ public class LoginFormController implements Initializable {
 
         if (authentication.authenticate(username, password)) {
             UserSession.getInstance().setUsername(username);
-            // SceneFactory for Employee manager
-            Platform.exit();
+            sceneFactory = new ProductManagementSceneFactory();
+            sceneFactory.renderScene();
         } else {
             tfUsername.setText("");
             pfPassword.setText("");
