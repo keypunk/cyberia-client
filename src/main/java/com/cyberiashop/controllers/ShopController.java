@@ -13,15 +13,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,8 +28,6 @@ import java.util.ResourceBundle;
 
 public class ShopController implements Initializable {
 
-    @FXML
-    private VBox chosenItemCard;
     @FXML
     private ImageView itemImg;
     @FXML
@@ -46,12 +40,15 @@ public class ShopController implements Initializable {
     private Spinner<Integer> itemQuantitySpinner;
     @FXML
     private GridPane grid;
+    @FXML
+    private TextField searchTextField;
 
     private ShopDimensions shopDimensions;
 
     private List<Product> products = new ArrayList<>();
     private Image image;
     private ProductSearch productSearch;
+    private ShopListener shopListener;
 
     private SceneFactory sceneFactory;
 
@@ -87,6 +84,7 @@ public class ShopController implements Initializable {
         itemNameLabel.setText(product.getName());
         itemPriceLabel.setText(product.getPrice() + new EuroCurrency().getCurrency());
         image = new Image(getClass().getResourceAsStream(product.getImgSrc()));
+        itemImg.setImage(image);
 
         if (product.getQuantity() > 0) {
             SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory
@@ -102,6 +100,12 @@ public class ShopController implements Initializable {
 
         if (products.size() > 0) {
             setChosenItemCard(products.get(0));
+            shopListener = new ShopListener() {
+                @Override
+                public void onClickListener(Product product) {
+                    setChosenItemCard(product);
+                }
+            };
         }
 
         for (int i = 0; i < products.size(); i++) {
@@ -112,6 +116,7 @@ public class ShopController implements Initializable {
             ItemController itemController = fxmlLoader.getController();
             itemController.setProduct(products.get(i));
             itemController.setCurrency(new EuroCurrency());
+            itemController.setMyListener(shopListener);
             itemController.applyDataToView();
 
             if (column == 3) {
@@ -126,9 +131,26 @@ public class ShopController implements Initializable {
         }
     }
 
+    public void clearGridPane() {
+        grid.getChildren().clear();
+    }
+
     @FXML
     void handleLogoutAction(ActionEvent event) throws Exception {
         sceneFactory = new LoginSceneFactory();
         sceneFactory.renderScene();
+    }
+
+    @FXML
+    void handleSearchAction(ActionEvent event) throws Exception {
+        String searchText = searchTextField.getText();
+        if (!searchText.isEmpty()) {
+            List<Product> products = productSearch.searchByProductName(searchText);
+            clearGridPane();
+            addProductsToGridPane(products);
+        } else {
+            clearGridPane();
+            addProductsToGridPane(products);
+        }
     }
 }

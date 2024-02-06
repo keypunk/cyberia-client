@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface ProductSearch extends Remote {
     List<Product> emptySearch() throws RemoteException;
-    Product searchByProductName(String productName) throws RemoteException;
+    List<Product> searchByProductName(String productName) throws RemoteException;
 }

@@ -37,7 +37,7 @@
                         <Insets left="30.0" right="30.0" />
                      </VBox.margin>
                      <children>
-                        <TextField prefHeight="40.0" prefWidth="245.0" promptText="Search for products" styleClass="text-field" stylesheets="@shop-main-style.css">
+                        <TextField fx:id="searchTextField" onAction="#handleSearchAction" prefHeight="40.0" prefWidth="245.0" promptText="Search for products" styleClass="text-field" stylesheets="@shop-main-style.css">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -45,7 +45,7 @@
                               <Font name="FreeSans" size="18.0" />
                            </font>
                         </TextField>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" styleClass="shop-button" stylesheets="@shop-main-style.css" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#handleSearchAction" prefHeight="40.0" prefWidth="80.0" styleClass="shop-button" stylesheets="@shop-main-style.css" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>

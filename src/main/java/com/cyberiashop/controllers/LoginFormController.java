@@ -1,5 +1,7 @@
 package com.cyberiashop.controllers;
 
+import com.cyberiashop.models.business_logic.authentication.CustomerAuthenticationFactory;
+import com.cyberiashop.models.business_logic.authentication.UserSession;
 import com.cyberiashop.models.utils.EmptyInputValidator;
 import com.cyberiashop.models.business_logic.authentication.Authentication;
 import com.cyberiashop.models.business_logic.authentication.EmployeeAuthenticationFactory;
@@ -15,6 +17,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.rmi.RemoteException;
 import java.util.ResourceBundle;
 
 public class LoginFormController implements Initializable {
@@ -54,23 +57,37 @@ public class LoginFormController implements Initializable {
         if (emptyInputFields) {
             LoginAlerts.showInvalidLoginInputAlert();
         } else if (selectedUserRole.contains(EMPLOYEE_ROLE)) {
-            authentication = new EmployeeAuthenticationFactory().createAuthentication();
-            if (authentication.authenticate(username, password)) {
-                Platform.exit();
-            } else {
-                tfUsername.setText("");
-                pfPassword.setText("");
-                LoginAlerts.showFailedLoginAlert();
-            }
+            handleEmployeeLoginAction(username, password);
         } else if (selectedUserRole.contains(CUSTOMER_ROLE)) {
-            sceneFactory = new ShopSceneFactory();
-            sceneFactory.renderScene();
+            handleCustomerLoginAction(username, password);
         }
     }
 
-    void handleCustomerLoginAction(String username, String password) {
+    void handleCustomerLoginAction(String username, String password) throws Exception {
+        authentication = new CustomerAuthenticationFactory().createAuthentication();
+
+        if (authentication.authenticate(username, password)) {
+            UserSession.getInstance().setUsername(username);
+            sceneFactory = new ShopSceneFactory();
+            sceneFactory.renderScene();
+        } else {
+            tfUsername.setText("");
+            pfPassword.setText("");
+            LoginAlerts.showFailedLoginAlert();
+        }
     }
 
-    void handleEmployeeLoginAction(String username, String password) {
+    void handleEmployeeLoginAction(String username, String password) throws Exception {
+        authentication = new EmployeeAuthenticationFactory().createAuthentication();
+
+        if (authentication.authenticate(username, password)) {
+            UserSession.getInstance().setUsername(username);
+            // SceneFactory for Employee manager
+            Platform.exit();
+        } else {
+            tfUsername.setText("");
+            pfPassword.setText("");
+            LoginAlerts.showFailedLoginAlert();
+        }
     }
 }
