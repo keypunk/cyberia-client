@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+// controller for items inside the shop main view
 public class ItemController {
     @FXML
     private ImageView img;

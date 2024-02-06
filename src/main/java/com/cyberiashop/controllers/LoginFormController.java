@@ -5,6 +5,7 @@ import com.cyberiashop.models.business_logic.authentication.UserSession;
 import com.cyberiashop.models.utils.EmptyInputValidator;
 import com.cyberiashop.models.business_logic.authentication.Authentication;
 import com.cyberiashop.models.business_logic.authentication.EmployeeAuthenticationFactory;
+import com.cyberiashop.views.scene_manager.RegisterSceneFactory;
 import com.cyberiashop.views.utils.LoginAlerts;
 import com.cyberiashop.views.scene_manager.ShopSceneFactory;
 import com.cyberiashop.views.scene_manager.SceneFactory;
@@ -61,6 +62,12 @@ public class LoginFormController implements Initializable {
         } else if (selectedUserRole.contains(CUSTOMER_ROLE)) {
             handleCustomerLoginAction(username, password);
         }
+    }
+
+    @FXML
+    void handleGoToRegister(ActionEvent event) throws Exception {
+        sceneFactory = new RegisterSceneFactory();
+        sceneFactory.renderScene();
     }
 
     void handleCustomerLoginAction(String username, String password) throws Exception {

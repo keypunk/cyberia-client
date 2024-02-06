@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -10,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" stylesheets="@login-style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cyberiashop.controllers.LoginFormController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" stylesheets="@login-style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cyberiashop.controllers.RegisterFormController">
    <left>
       <AnchorPane id="left-side" prefHeight="810.0" prefWidth="657.5" BorderPane.alignment="CENTER">
          <children>
@@ -42,9 +41,14 @@
             </ImageView>
             <TextField fx:id="tfUsername" layoutX="234.0" layoutY="371.0" prefHeight="47.0" prefWidth="185.0" promptText="Username" />
             <PasswordField fx:id="pfPassword" layoutX="236.0" layoutY="437.0" prefHeight="44.0" prefWidth="182.0" promptText="Password" />
-            <ComboBox fx:id="cbUserroles" layoutX="239.0" layoutY="510.0" prefHeight="55.0" prefWidth="182.0" />
-            <Button layoutX="280.0" layoutY="632.0" mnemonicParsing="false" onAction="#handleLoginAction" prefHeight="40.0" prefWidth="99.0" text="Login" />
-            <Hyperlink layoutX="201.0" layoutY="740.0" onAction="#handleGoToRegister" text="No customer account? Register here!" />
+            <Button layoutX="280.0" layoutY="632.0" mnemonicParsing="false" onAction="#handleRegisterAction" prefHeight="40.0" prefWidth="99.0" text="Register" />
+            <PasswordField fx:id="pfRepeatPassword" layoutX="236.0" layoutY="508.0" prefHeight="44.0" prefWidth="182.0" promptText="Repeat password" />
+            <ImageView fitHeight="32.0" fitWidth="30.0" layoutX="160.0" layoutY="515.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@cyberia_images/password_icon.png" />
+               </image>
+            </ImageView>
+            <Hyperlink layoutX="249.0" layoutY="743.0" onAction="#handleGoBackToLogin" text="I'm already registered!" />
          </children>
       </AnchorPane>
    </right>

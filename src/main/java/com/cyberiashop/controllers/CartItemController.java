@@ -5,6 +5,7 @@ import com.cyberiashop.views.utils.Currency;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+// controller for product items in the cart
 public class CartItemController {
     @FXML
     private Label productNameLabel;
