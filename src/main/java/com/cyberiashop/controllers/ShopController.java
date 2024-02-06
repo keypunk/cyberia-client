@@ -1,9 +1,12 @@
 package com.cyberiashop.controllers;
 
+import com.cyberiashop.controllers.utils.CurrencyFilter;
 import com.cyberiashop.models.business_logic.shop_logic.ElectronicProductSearchFactory;
 import com.cyberiashop.models.business_logic.shop_logic.ProductSearch;
 import com.cyberiashop.models.data_models.Product;
+import com.cyberiashop.models.data_models.ShoppingCart;
 import com.cyberiashop.models.exceptions.ProductSearchException;
+import com.cyberiashop.views.scene_manager.CartSceneFactory;
 import com.cyberiashop.views.scene_manager.LoginSceneFactory;
 import com.cyberiashop.views.scene_manager.SceneFactory;
 import com.cyberiashop.views.utils.EuroCurrency;
@@ -49,6 +52,7 @@ public class ShopController implements Initializable {
     private Image image;
     private ProductSearch productSearch;
     private ShopListener shopListener;
+    private ShoppingCart shoppingCart = ShoppingCart.getInstance();
 
     private SceneFactory sceneFactory;
 
@@ -136,6 +140,12 @@ public class ShopController implements Initializable {
     }
 
     @FXML
+    void handleGoToCartAction(ActionEvent event) throws Exception {
+        sceneFactory = new CartSceneFactory();
+        sceneFactory.renderScene();
+    }
+
+    @FXML
     void handleLogoutAction(ActionEvent event) throws Exception {
         sceneFactory = new LoginSceneFactory();
         sceneFactory.renderScene();
@@ -152,5 +162,14 @@ public class ShopController implements Initializable {
             clearGridPane();
             addProductsToGridPane(products);
         }
+    }
+
+    @FXML
+    void handleAddToCartAction(ActionEvent event) {
+        Product addedProduct = new Product();
+        addedProduct.setName(itemNameLabel.getText());
+        addedProduct.setPrice(CurrencyFilter.convertPriceLabelToDouble(itemPriceLabel.getText()));
+        addedProduct.setQuantity(itemQuantitySpinner.getValue());
+        shoppingCart.addProductToCart(addedProduct);
     }
 }

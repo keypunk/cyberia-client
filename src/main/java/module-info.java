@@ -14,6 +14,7 @@ module com.cyberiashop {
     exports com.cyberiashop.controllers;
     opens com.cyberiashop.controllers to javafx.fxml;
     opens com.cyberiashop to javafx.fxml;
+    exports com.cyberiashop.controllers.utils;
     exports com.cyberiashop.views.utils;
     opens com.cyberiashop.views.utils to javafx.fxml;
     exports com.cyberiashop;
