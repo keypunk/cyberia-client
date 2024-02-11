@@ -1,10 +1,13 @@
 package com.cyberiashop.controllers;
 
+import com.cyberiashop.Client;
 import com.cyberiashop.models.business_logic.shop_logic.ElectronicProductSearchFactory;
 import com.cyberiashop.models.business_logic.shop_logic.ProductSearch;
 import com.cyberiashop.models.data_models.Product;
 import com.cyberiashop.models.exceptions.ProductSearchException;
 import com.cyberiashop.views.dialogs.AddProductDialog;
+import com.cyberiashop.views.dialogs.RemoveProductDialog;
+import com.cyberiashop.views.scene_manager.EmployeeManagementSceneFactory;
 import com.cyberiashop.views.scene_manager.LoginSceneFactory;
 import com.cyberiashop.views.scene_manager.SceneFactory;
 import javafx.collections.FXCollections;
@@ -62,9 +65,9 @@ public class ProductManagementController implements Initializable {
         priceCol.setText("Product price");
         quantityCol.setText("Quantity");
 
-        nameCol.setCellValueFactory(new PropertyValueFactory<Product, String>("name"));
-        priceCol.setCellValueFactory(new PropertyValueFactory<Product, Double>("price"));
-        quantityCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("quantity"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+        quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
 
         observableProducts = FXCollections.observableList(products);
         productTableView.setItems(observableProducts);
@@ -72,21 +75,24 @@ public class ProductManagementController implements Initializable {
     }
 
     @FXML
-    void handleAddProductAction(ActionEvent event) {
-        new AddProductDialog(productTableView, observableProducts).showAndWait();
+    void handleOpenAddProductAction(ActionEvent event) {
+        new AddProductDialog(Client.getStage(), observableProducts).showAndWait();
     }
 
     @FXML
-    void handleEmployeeManagementAction(ActionEvent event) {
+    void handleOpenRemoveProductAction(ActionEvent event) {
+        new RemoveProductDialog(Client.getStage(), observableProducts).showAndWait();
+    }
+
+    @FXML
+    void handleEmployeeManagementAction(ActionEvent event) throws Exception {
+        sceneFactory = new EmployeeManagementSceneFactory();
+        sceneFactory.renderScene();
     }
 
     @FXML
     void handleLogoutAction(ActionEvent event) throws Exception {
         sceneFactory = new LoginSceneFactory();
         sceneFactory.renderScene();
-    }
-
-    @FXML
-    void handleRemoveProductAction(ActionEvent event) {
     }
 }

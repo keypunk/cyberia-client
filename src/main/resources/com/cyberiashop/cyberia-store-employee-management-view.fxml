@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cyberiashop.controllers.ProductManagementController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cyberiashop.controllers.EmployeeManagementController">
    <children>
       <BorderPane layoutX="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -35,11 +35,11 @@
                         <Insets left="20.0" right="20.0" />
                      </VBox.margin>
                      <children>
-                        <Button mnemonicParsing="false" onAction="#handleEmployeeManagementAction" styleClass="top-right-button" stylesheets="@shop-main-style.css">
+                        <Button mnemonicParsing="false" onAction="#handleProductManagementAction" styleClass="top-right-button" stylesheets="@shop-main-style.css">
                            <graphic>
                               <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@cyberia_images/username_icon.png" />
+                                    <Image url="@cyberia_images/box_icon.png" />
                                  </image>
                                  <effect>
                                     <ColorAdjust brightness="1.0" />
@@ -70,18 +70,17 @@
                   <HBox prefHeight="100.0" prefWidth="200.0" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <TableView fx:id="productTableView" prefHeight="380.0" prefWidth="701.0">
+                        <TableView fx:id="employeeTableView" prefHeight="380.0" prefWidth="701.0">
                           <columns>
-                            <TableColumn fx:id="nameCol" prefWidth="412.66668701171875" />
-                            <TableColumn fx:id="priceCol" prefWidth="152.33331298828125" />
-                              <TableColumn fx:id="quantityCol" prefWidth="134.0" />
+                            <TableColumn fx:id="nameCol" prefWidth="384.0" />
+                              <TableColumn fx:id="passwordCol" prefWidth="326.0" />
                           </columns>
                         </TableView>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#handleOpenAddProductAction" prefHeight="50.0" prefWidth="270.0" styleClass="shop-button" stylesheets="@shop-main-style.css" text="Add product" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#handleOpenAddEmployeeAction" prefHeight="50.0" prefWidth="270.0" styleClass="shop-button" stylesheets="@shop-main-style.css" text="Add employee" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -89,7 +88,7 @@
                      </children></HBox>
                   <HBox alignment="CENTER" prefHeight="55.0" prefWidth="880.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#handleOpenRemoveProductAction" prefHeight="50.0" prefWidth="270.0" styleClass="shop-button" stylesheets="@shop-main-style.css" text="Remove product" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#handleOpenRemoveEmployeeAction" prefHeight="50.0" prefWidth="270.0" styleClass="shop-button" stylesheets="@shop-main-style.css" text="Remove employee" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>

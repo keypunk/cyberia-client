@@ -43,7 +43,7 @@
             <TextField fx:id="tfUsername" layoutX="234.0" layoutY="371.0" prefHeight="47.0" prefWidth="185.0" promptText="Username" />
             <PasswordField fx:id="pfPassword" layoutX="236.0" layoutY="437.0" prefHeight="44.0" prefWidth="182.0" promptText="Password" />
             <ComboBox fx:id="cbUserroles" layoutX="239.0" layoutY="510.0" prefHeight="55.0" prefWidth="182.0" />
-            <Button layoutX="280.0" layoutY="632.0" mnemonicParsing="false" onAction="#handleLoginAction" prefHeight="40.0" prefWidth="99.0" text="Login" />
+            <Button fx:id="loginButton" layoutX="280.0" layoutY="632.0" mnemonicParsing="false" onAction="#handleLoginAction" prefHeight="40.0" prefWidth="99.0" text="Login" />
             <Hyperlink layoutX="201.0" layoutY="740.0" onAction="#handleGoToRegister" text="No customer account? Register here!" />
          </children>
       </AnchorPane>

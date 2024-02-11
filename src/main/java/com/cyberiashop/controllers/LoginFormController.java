@@ -14,6 +14,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -31,6 +32,8 @@ public class LoginFormController implements Initializable {
     private TextField tfUsername;
     @FXML
     private ComboBox<String> cbUserroles;
+    @FXML
+    private Button loginButton;
 
     // declaring and initializing user roles for comboBox
     private final String EMPLOYEE_ROLE = "Employee";
