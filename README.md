@@ -6,17 +6,19 @@ Cyberia-Shop is an E-Commerce platform to buy and manage electronic products
 ## Features
 - Functioning login/register service
 - Functioning customer shop with local shopping cart persistence
-- Functioning product management and employee management over RMI
+- Functioning product management over RMI 
 
 ## Features still missing
 - Order table and order logic still missing
+- Employee management functions (add employee/remove employee) still missing
+- GUI tests missing (Tests were removed due to jakarta dependency problems)
 
 # Client information
 There is only one employee account (username: "admin", password: "1234"), since registration for employees over a customer client should not be possible, logically.  
 Registration is only possible for customers.
 
 ## System prerequisites
-- System with at least 4GB RAM (for modern operation system requirements)
+- System with at least 4GB RAM (for modern operating system requirements)
 
 ## Software prerequisites
 - At least Java SDK 19 or higher
