@@ -5,6 +5,7 @@ import com.cyberiashop.models.business_logic.management_logic.ProductManager;
 import com.cyberiashop.models.data_models.Category;
 import com.cyberiashop.models.data_models.Product;
 import com.cyberiashop.models.exceptions.ProductManagerException;
+import com.cyberiashop.views.utils.DefaultProductImage;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
@@ -62,6 +63,7 @@ public class AddProductDialog extends Dialog<Product> {
             newProduct.setName(name);
             newProduct.setPrice(price);
             newProduct.setQuantity(quantity);
+            newProduct.setImgSrc(DefaultProductImage.getImagePath());
             newProduct.setCategory(Category.ACCESSORIES);
             observableList.add(newProduct);
             Thread addProductToDB = new Thread(() -> {
