@@ -1,7 +1,7 @@
 <img align="center" src="src/main/resources/com/cyberiashop/cyberia_images/cyberia_logo.jpg" width="450" height="450">
 
 # Final commit hash
-fde32523a43a862f730b107c1ea15f9ff8b5da79 (master-branch)
+3f177419c35226a77eb7e509e0aaa083f8786498 (master-branch)
 
 # Cyberia-Shop (Client)
 Cyberia-Shop is an E-Commerce platform to buy and manage electronic products
