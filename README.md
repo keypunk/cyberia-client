@@ -41,7 +41,7 @@ Afterwards build the project with Gradle
 ```shell
 ./gradlew build
 ```  
-Let the Gradle build system download all the necessary libraries  
+Let the Gradle build system download all the necessary libraries.  
 Once the building and indexing is complete, you can run the client.  
 ```shell
 ./gradlew run
