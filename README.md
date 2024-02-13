@@ -26,15 +26,23 @@ Registration is only possible for customers.
 ## Software prerequisites
 - At least Java SDK 19 or higher
 - A PostgresSQL Server [instructions on the server repository](https://github.com/keypunk/cyberia-server)
-- Gradle build system (will soon be removed, once jar files work again)
+- [Gradle build system](https://gradle.org/)
 
 ## Installing / Getting started
 
 Before you start cloning the client repository, you should follow the [server repository instructions](https://github.com/keypunk/cyberia-server) first.  
-Once you finished the server setup, clone the client repository to your IDE's project folder. (Will soon be removed once jar files work again)
+Once you finished the server setup, clone the client repository to your desired location.
 
 ```shell
 git clone git@github.com:keypunk/cyberia-client.git
-```
+```  
+Afterwards build the project with Gradle
+
+```shell
+./gradlew build
+```  
 Let the Gradle build system download all the necessary libraries  
-Once the building and indexing is complete, you can run the client.
+Once the building and indexing is complete, you can run the client.  
+```shell
+./gradlew run
+```
