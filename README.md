@@ -26,7 +26,7 @@ Registration is only possible for customers.
 ## Software prerequisites
 - At least Java SDK 19 or higher
 - A PostgresSQL Server [instructions on the server repository](https://github.com/keypunk/cyberia-server)
-- [Gradle build system](https://gradle.org/)
+- [Gradle build system](https://gradle.org/) (if you don't want to download the jar file)
 
 ## Installing / Getting started
 
