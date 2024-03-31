@@ -31,7 +31,7 @@ Registration is only possible for customers.
 ## Installing / Getting started
 
 Before you start cloning the client repository, you should follow the [server repository instructions](https://github.com/keypunk/cyberia-server) first.  
-Once you finished the server setup, clone the client repository to your desired location.
+Once you finished the server setup, clone the client repository to your desired location or, alternatively, download the JAR-file from the 'Releases' section and follow the instructions there.
 
 ```shell
 git clone git@github.com:keypunk/cyberia-client.git
